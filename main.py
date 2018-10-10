@@ -1,9 +1,10 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
-form = """<!DOCTYPE html>
+form = 
+""" <!DOCTYPE html>
 
 <html>
     <head>
@@ -24,17 +25,19 @@ form = """<!DOCTYPE html>
         </style>
     </head>
     <body>
-        <form>
-            <input type="text" />
+        <form method="POST">
+            <input type="text" name="rot" />
             <input type="button">Submit</input>
+            <textarea name="text" />
         </form>
 
       <!-- create your form here -->
     </body>
 </html>
+
 """
 @app.route("/")
 def index():
-    return "Hello World"
+    return form
 
 app.run()
