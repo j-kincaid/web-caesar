@@ -27,7 +27,7 @@ form =
     <body>
         <form action="/encrypt" method="POST">
             <label for="rot">Rotate by:</label>
-            <input type="text" name="rot" />
+            <input type="text" name="rot" value= 0 />
             <input type="button">Submit Query</input>
             <textarea name="text" />
         </form>
