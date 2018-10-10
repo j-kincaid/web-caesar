@@ -25,9 +25,10 @@ form =
         </style>
     </head>
     <body>
-        <form method="POST">
+        <form action="/encrypt" method="POST">
+            <label for="rot">Rotate by:</label>
             <input type="text" name="rot" />
-            <input type="button">Submit</input>
+            <input type="button">Submit Query</input>
             <textarea name="text" />
         </form>
 
