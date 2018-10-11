@@ -25,11 +25,14 @@ form =""" <!DOCTYPE html>
         </style>
     </head>
     <body>
-        <form action="/encrypt" method="POST">
-            <label for="rot">Rotate by:</label>
-            <input type="text" name="rot" value= 0 />
-            <input type="button">Submit Query</input>
-            <textarea name="text" />
+        <form method="POST">
+            <div>
+                <label for="rot">Rotate by:</label>
+                <input type="text" name="rot" value="0">
+            </div>
+                <textarea name="text" name="text">{}</textarea>
+                <br/>
+                <input type="button">Submit Query</input>
         </form>
 
       <!-- create your form here -->
@@ -55,6 +58,8 @@ encrypted = """
 
 '<h1>
       <!-- return encrypted string here -->
+      {form.format(...)}
+      <!-- The argument to this method call should be the empty string in the case of index, and it should be the encrypted string in the case of encrypt -->
 </h1>'
 
 
