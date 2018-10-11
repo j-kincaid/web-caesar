@@ -43,5 +43,19 @@ def index():
 
 app.run()
 
-def encrypt():
-    @app.route("/", methods=['POST']
+def encrypt(rot, text):
+# Add an @app.route decorator to receive requests at
+# "/" and with post 
+    @app.route("/", methods=['POST'])
+    
+
+# Encrypt the value of text using rotate_string
+# Return the encrypted string to be rendered in the browser. 
+encrypted = """ 
+
+'<h1>
+      <!-- return encrypted string here -->
+</h1>'
+
+
+"""
