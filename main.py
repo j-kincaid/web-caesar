@@ -25,6 +25,7 @@ form =""" <!DOCTYPE html>
         </style>
     </head>
     <body>
+      <!-- create your form here -->
         <form method="POST">
             <div>
                 <label for="rot">Rotate by:</label>
@@ -35,7 +36,6 @@ form =""" <!DOCTYPE html>
                 <input type="button">Submit Query</input>
         </form>
 
-      <!-- create your form here -->
     </body>
 </html>
 
