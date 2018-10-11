@@ -4,8 +4,7 @@ from caesar import rotate_string
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
-form = 
-""" <!DOCTYPE html>
+form =""" <!DOCTYPE html>
 
 <html>
     <head>
@@ -43,3 +42,6 @@ def index():
     return form
 
 app.run()
+
+def encrypt():
+    @app.route("/", methods=['POST']
