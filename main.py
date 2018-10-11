@@ -31,7 +31,7 @@ form =""" <!DOCTYPE html>
                 <label for="rot">Rotate by:</label>
                 <input type="text" name="rot" value="0">
             </div>
-                <textarea name="text" name="text">{}</textarea>
+                <textarea name="text" name="text">{rotated}</textarea>
                 <br/>
                 <input type="button">Submit Query</input>
         </form>
@@ -60,7 +60,10 @@ encrypted = """
       <!-- return encrypted string here -->
       {form.format(...)}
       <!-- The argument to this method call should be the empty string in the case of index, and it should be the encrypted string in the case of encrypt -->
+
+
 </h1>'
 
 
 """
+form = form.format(rotated = '')
