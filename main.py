@@ -4,7 +4,7 @@ from caesar import rotate_string
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
-form =""" <!DOCTYPE html>
+form = """ <!DOCTYPE html>
 
 <html>
     <head>
@@ -54,7 +54,7 @@ def encrypt(rot, text):
 
 # Encrypt the value of text using rotate_string
 # Return the encrypted string to be rendered in the browser. 
-encrypted = """ 
+""" 
 
 '<h1>
       <!-- return encrypted string here -->
