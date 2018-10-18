@@ -44,13 +44,15 @@ form = """ <!DOCTYPE html>
 -->
         <form action = "/rotate_string" method="POST">
             <div>
-                <label for="rot">Rotate by:</label>
+                <label for="rot">{0}</label>
                 <input type="text" name="rot" value="0">
             </div>
-                <textarea name="text" name="text">{0}</textarea>
+                <textarea name="text" name="text">{encrypted_string}</textarea>
                 <br/>
                 <input type="submit"></input>
         </form>
+
+
 
     </body>
 </html>
@@ -65,41 +67,45 @@ form = """ <!DOCTYPE html>
 
 
 
-def encrypt(rot, text):
 # Add an @app.route decorator to receive requests at
 # "/" and with post 
-    @app.route("/", methods=['POST'])
-    
+@app.route("/", methods=['POST'])
+def encrypt(rot, text):
+    for char in text:
+        rotated = str(rotate_string(text, rot))
+    return rotated
 
 # TODO: Encrypt the value of text using rotate_string
 # Return the encrypted string to be rendered in the browser. 
 # Within encrypt, store the values of these request parameters
 # in local variables, converting data types as necessary. 
 # Then, encrypt the value of the text parameter using rotate_string. 
+
+
 # Return the encrypted string wrapped in <h1> tags, to be 
 # rendered in the browser.
 
-    text =    """ 
+encrypted_string = """ 
 
-        '<h1>{rot}
+        '<h1>
             <!-- return encrypted string here -->
 
             {form.format(index = "", encrypt = rotated)}
 
             <!-- The argument to this method call should be the empty string in the case of index, and it should be the encrypted string in the case of encrypt -->
 
-    return rotated
 
         </h1>'
 
     """
-encrypted = encrypt.format(index = "", encrypt = 'encrypted_string')
 
+    
 @app.route("/rotate_string", methods=['POST'])
 def index():
-    rotated = ""
+    form = form.format(index = "", encrypt = 'encrypted_string')
 
-In the index function, return the form variable.
+# In the index function, return the form variable.
     return form
+
 
 app.run()
