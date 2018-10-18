@@ -5,21 +5,20 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 
 
-# TODO: make a global variable named form above the 
-# @app.route("/")decorator preceding the 
-# index function, and set its value to be the HTML displayed here.
+<!--
+
 # TODO: The form uses the POST method.
 # There are two inputs: a regular input with type="text" 
 # and a textarea.
 # Set name="rot" on the input element and name="text" 
 # on the textarea.
-# Has a label on the input element that looks something like 
-# the one in the screenshot above.
+
 # The input element has the default value of 0.
 # Has a submit button.
 
-# In the index function, return the form variable.
-
+# TODO: make a global variable named form above the 
+# @app.route("/")decorator preceding the 
+# index function, and set its value to be the HTML displayed here.
 
 form = """ <!DOCTYPE html>
 
@@ -42,7 +41,9 @@ form = """ <!DOCTYPE html>
         </style>
     </head>
     <body>
-      <!-- create your form here -->
+      <!-- create your form here 
+
+-->
         <form method="POST">
             <div>
                 <label for="rot">Rotate by:</label>
@@ -65,8 +66,10 @@ form = """ <!DOCTYPE html>
 # rot and text.
 
 
-@app.route("/encrypt", methods=['POST'])
+@app.route("/", methods=['POST'])
 def index():
+
+# In the index function, return the form variable.
     return form
 
 app.run()
