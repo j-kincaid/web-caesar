@@ -23,31 +23,31 @@ form = """ <!DOCTYPE html>
 <html>
     <head>
         <style>
-            form {
+            form {{
                 background-color: #eee;
                 padding: 20px;
                 margin: 0 auto;
                 width: 540px;
                 font: 16px sans-serif;
                 border-radius: 10px;
-            }
-            textarea {
+            }}
+            textarea {{
                 margin: 10px 0;
                 width: 540px;
                 height: 120px;
-            }
+            }}
         </style>
     </head>
     <body>
       <!-- create your form here 
 
 -->
-        <form action = "/encrypt" method="POST">
+        <form action = "/rotate_string" method="POST">
             <div>
                 <label for="rot">Rotate by:</label>
                 <input type="text" name="rot" value="0">
             </div>
-                <textarea name="text" name="text">{text}</textarea>
+                <textarea name="text" name="text">{0}</textarea>
                 <br/>
                 <input type="submit"></input>
         </form>
@@ -68,7 +68,7 @@ form = """ <!DOCTYPE html>
 def encrypt(rot, text):
 # Add an @app.route decorator to receive requests at
 # "/" and with post 
-    @app.route("/encrypt", methods=['POST'])
+    @app.route("/", methods=['POST'])
     
 
 # TODO: Encrypt the value of text using rotate_string
@@ -79,25 +79,27 @@ def encrypt(rot, text):
 # Return the encrypted string wrapped in <h1> tags, to be 
 # rendered in the browser.
 
-    encrypted =    """ 
+    text =    """ 
 
         '<h1>{rot}
             <!-- return encrypted string here -->
 
-            {form.format(...)}
+            {form.format(index = "", encrypt = rotated)}
 
             <!-- The argument to this method call should be the empty string in the case of index, and it should be the encrypted string in the case of encrypt -->
 
+    return rotated
 
         </h1>'
 
     """
 encrypted = encrypt.format(index = "", encrypt = 'encrypted_string')
 
-@app.route("/", methods=['POST'])
+@app.route("/rotate_string", methods=['POST'])
 def index():
+    rotated = ""
 
-# In the index function, return the form variable.
+In the index function, return the form variable.
     return form
 
 app.run()
