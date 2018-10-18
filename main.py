@@ -47,15 +47,14 @@ form = """ <!DOCTYPE html>
                 <label for="rot">{0}</label>
                 <input type="text" name="rot" value="0">
             </div>
-                <textarea name="text" name="text">{encrypted_string}</textarea>
+                <textarea name="text" name="text">{rotated_string}</textarea>
                 <br/>
                 <input type="submit"></input>
         </form>
 
-
-
     </body>
 </html>
+
 
 """
 
@@ -71,8 +70,7 @@ form = """ <!DOCTYPE html>
 # "/" and with post 
 @app.route("/", methods=['POST'])
 def encrypt(rot, text):
-    for char in text:
-        rotated = str(rotate_string(text, rot))
+    rotated = str(rotate_string(text, rot))
     return rotated
 
 # TODO: Encrypt the value of text using rotate_string
@@ -102,10 +100,14 @@ encrypted_string = """
     
 @app.route("/rotate_string", methods=['POST'])
 def index():
-    form = form.format(index = "", encrypt = 'encrypted_string')
+    encrypted = form.rotated_string()
+        encrypted += '<br>{index}<br>:{""}<br>.format(index="", encrypt = rotated)
+    
+    format(index = "", encrypt = "encrypted_string")
+
+    return encrypted
 
 # In the index function, return the form variable.
-    return form
 
 
 app.run()
