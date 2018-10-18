@@ -78,7 +78,6 @@ def encrypt():
 # in local variables, converting data types as necessary. 
 # Then, encrypt the value of the text parameter using rotate_string. 
 
-
 # Return the encrypted string wrapped in <h1> tags, to be 
 # rendered in the browser.
 
