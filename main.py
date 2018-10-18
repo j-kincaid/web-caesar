@@ -3,10 +3,11 @@ from caesar import rotate_string
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
+
+
 # TODO: make a global variable named form above the 
 # @app.route("/")decorator preceding the 
 # index function, and set its value to be the HTML displayed here.
-
 # TODO: The form uses the POST method.
 # There are two inputs: a regular input with type="text" 
 # and a textarea.
@@ -64,7 +65,7 @@ form = """ <!DOCTYPE html>
 # rot and text.
 
 
-@app.route("/")
+@app.route("/encrypt", methods=['POST'])
 def index():
     return form
 
