@@ -50,7 +50,7 @@ form = """ <!DOCTYPE html>
             </div>
                 <textarea name="text" name="text">{rotated}</textarea>
                 <br/>
-                <input type="button">Submit Query</input>
+                <input type="submit"></input>
         </form>
 
     </body>
