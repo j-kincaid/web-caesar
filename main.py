@@ -42,12 +42,12 @@ form = """ <!DOCTYPE html>
       <!-- create your form here 
 
 -->
-        <form method="POST">
+        <form action = "/encrypt" method="POST">
             <div>
                 <label for="rot">Rotate by:</label>
                 <input type="text" name="rot" value="0">
             </div>
-                <textarea name="text" name="text">{rotated}</textarea>
+                <textarea name="text" name="text">{text}</textarea>
                 <br/>
                 <input type="submit"></input>
         </form>
@@ -64,13 +64,6 @@ form = """ <!DOCTYPE html>
 # rot and text.
 
 
-@app.route("/", methods=['POST'])
-def index():
-
-# In the index function, return the form variable.
-    return form
-
-app.run()
 
 def encrypt(rot, text):
 # Add an @app.route decorator to receive requests at
@@ -86,15 +79,25 @@ def encrypt(rot, text):
 # Return the encrypted string wrapped in <h1> tags, to be 
 # rendered in the browser.
 
-    encrypt =    """ 
+    encrypted =    """ 
 
-        '<h1>
+        '<h1>{rot}
             <!-- return encrypted string here -->
+
             {form.format(...)}
+
             <!-- The argument to this method call should be the empty string in the case of index, and it should be the encrypted string in the case of encrypt -->
 
 
         </h1>'
 
     """
-form = form.format(rotated = '')
+encrypted = encrypt.format(index = "", encrypt = 'encrypted_string')
+
+@app.route("/", methods=['POST'])
+def index():
+
+# In the index function, return the form variable.
+    return form
+
+app.run()
