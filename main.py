@@ -5,8 +5,6 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 
 
-<!--
-
 # TODO: The form uses the POST method.
 # There are two inputs: a regular input with type="text" 
 # and a textarea.
