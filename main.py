@@ -47,7 +47,7 @@ form = """ <!DOCTYPE html>
                 <label for="rot">{0}</label>
                 <input type="text" name="rot" value="0">
             </div>
-                <textarea name="text" name="text">{rotated_string}</textarea>
+                <textarea name="text" name="text"></textarea>
                 <br/>
                 <input type="submit"></input>
         </form>
