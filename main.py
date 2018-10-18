@@ -39,15 +39,13 @@ form = """ <!DOCTYPE html>
         </style>
     </head>
     <body>
-      <!-- create your form here 
 
--->
-        <form action = "/rotate_string" method="POST">
+        <form method="POST">
             <div>
-                <label for="rot">{0}</label>
+                <label for="rot">Rotate by:</label>
                 <input type="text" name="rot" value="0">
             </div>
-                <textarea name="text" name="text"></textarea>
+                <textarea name="text" name="text">{0}</textarea>
                 <br/>
                 <input type="submit"></input>
         </form>
@@ -69,9 +67,10 @@ form = """ <!DOCTYPE html>
 # Add an @app.route decorator to receive requests at
 # "/" and with post 
 @app.route("/", methods=['POST'])
-def encrypt(rot, text):
+def encrypt():
+    text = request.form['text']
+    rot = int(request.form['rot'])
     rotated = str(rotate_string(text, rot))
-    return rotated
 
 # TODO: Encrypt the value of text using rotate_string
 # Return the encrypted string to be rendered in the browser. 
@@ -83,29 +82,11 @@ def encrypt(rot, text):
 # Return the encrypted string wrapped in <h1> tags, to be 
 # rendered in the browser.
 
-encrypted_string = """ 
+    return  '<h1>' + form.format(rotated)    + '</h1>'
 
-        '<h1>
-            <!-- return encrypted string here -->
-
-            {form.format(index = "", encrypt = rotated)}
-
-            <!-- The argument to this method call should be the empty string in the case of index, and it should be the encrypted string in the case of encrypt -->
-
-
-        </h1>'
-
-    """
-
-    
-@app.route("/rotate_string", methods=['POST'])
+@app.route("/")
 def index():
-    encrypted = form.rotated_string()
-        encrypted += '<br>{index}<br>:{""}<br>.format(index="", encrypt = rotated)
-    
-    format(index = "", encrypt = "encrypted_string")
-
-    return encrypted
+    return form.format("")
 
 # In the index function, return the form variable.
 
